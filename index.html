@@ -26,13 +26,29 @@
           <h2>
             <span style="color: var(--r-main-color)">Field Engineer @</span>
             <span style="color: #fb4934">Sourcegraph</span>
+            <p style="font-size:0.5em"><a href="https://www.linkedin.com/in/trly">https://www.linkedin.com/in/trly</a></p>
           </h2>
+            <aside class="notes">
+              I'm a field engineer at Sourcegraph. I get to partner with our biggest customers and help them solve issues with 
+              Sourcegraph's tools (Amp for agenting coding solutions, and Code Search for helping them and their tools understand the 
+              complexity of truly massive code bases)
+
+              Big shout out to Tim Wade, a former colleague, that reached out to me about doing this presentation.
+
+              So, let's dive in to the wild and confusing world of...
+            </aside>
         </section>
         <section>
           <img src="assets/agents.jpg" style="width: 1024px"/>
+          <aside class="notes">
+            I really like memes, if you don't, you may not like the first half of this talk.
+          </aside>
         </section>
         <section>
-          <h2 class="r-fit-text">What do you think of when you hear 'Agents'?</h2>
+          <h2 class="r-fit-text">What do you think of when you hear <span style="color: #fb4934">Agents</span>?</h2>
+          <aside class="notes">
+            This is one of the interactive parts of the presentation
+          </aside>
         </section>
         <section>
           <div class="r-stack">
@@ -62,94 +78,82 @@
           </div>
         </section>
         <section>
-          <h2 class="r-fit-text">How do <b>YOU</b> define an agent?</h2>
-        </section>
-        <section>
-          <h2 class="r-fit-text">What an agent really is</h2>
+          <h2 class="r-fit-text">How do <span style="color: #fb4934">YOU</span> define an agent?</h2>
+          <aside class="notes">
+            Again, this is one of the interactive parts of the presentation
+          </aside>
         </section>
         <section>
           <img src="assets/secret.jpg" style="width: 1024px"/>
+          <aside class="notes">
+            What most products want you to believe and hope you accept
+          </aside>
         </section>
         <section data-auto-animate>
-          <h1 class="r-fit-text">The BIG Secret</h1>
+          <h1 class="r-fit-text">The <span style="color: #fb4934">BIG</span> Secret</h1>
+          <aside class="notes">
+            Want to know the truth
+          </aside>
         </section>
         <section data-auto-animate>
-          <h1>The BIG Secret</h1>
-          <pre><code data-trim data-noescape class="language-python">class Agent:
-
+          <h1>The <span style="color: #fb4934">BIG</span> Secret</h1>
+          <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
+class Agent:
   def run(self):
     while True:
       user_input, ok = self.get_user_message()
+      
       if not ok:
           break
 
       conversation.append(user_input)
-
       message = self.run_inference(conversation)
-
       conversation.append(llm_response)
           </code></pre>
         </section>
         <section data-auto-animate>
-          <pre><code data-trim data-noescape class="language-python">class Agent:
-
+          <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
+class Agent:
   def run(self):
     while True:
       user_input, ok = self.get_user_message()
+      
       if not ok:
           break
 
       conversation.append(user_input)
-
       message = self.run_inference(conversation)
-
       conversation.append(llm_response)
           </code></pre>
-          <img src="assets/surprise.jpg" style="width: 512px" />
+          <img src="assets/not-sure-if.png" style="width: 512px" />
         </section>
         <section data-auto-animate>
-          <h1 class="r-fit-text">Wait, that's it!?</h1>
-          <img src="assets/surprise.jpg" style="width: 512px" />
+          <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
+    while True:
+      user_input, ok = self.get_user_message()
+      
+      if not ok:
+          break
+          </code></pre>
+          <img src="assets/not-sure-if.png" style="width: 512px" />
+          <h1>Wait, that's it!?</h1>
         </section>
         <section data-auto-animate>
-          <h1 class="r-fit-text">Mostly...</h1>
+          <h1 class="r-fit-text">Don't believe me?</h1>
         </section>
         <section data-auto-animate>
-          <h1 class="r-fit-text">Don't belive me?</h1>
-        </section>
-        <section data-auto-animate>
-          <h1 class="r-fit-text">Don't belive me?</h1>
-          <h2><a href="https://ampcode.com/how-to-build-an-agent">How to build an agent</a></h2>
+          <h1 class="r-fit-text">Don't believe me?</h1>
+          <h2><a href="https://ampcode.com/how-to-build-an-agent">How to Build an Agent</a></h2>
           <p><a href=https://registerspill.thorstenball.com/>Thorsten Ball</a>, April 15, 2025</p>
         </section>
-        <section>
-          <h2>Tools</h2>
-          <pre><code data-trim data-noescape class="language-text">✓ Thinking ▼
-The user is asking me to search the internet for information
-about "Lansing Codes" as a user group. Let me use the
-web_search tool to find information about this
-          </code></pre>
+        <section data-auto-animate>
+          <h2 class="r-fit-text">Tools</h2>
         </section>
-        <section>
+        <section data-auto-animate>
           <h2>Tools</h2>
-          <pre><code data-trim data-noescape class="language-text">
-❯ amp tool show web_search
-# web_search (built-in)
-
-Search the web for information relevant to a research objective.
-
-To get more information from a result URL or to ensure the latest contents are fetched, use the `read_web_page` on a URL.
-
-## When to use this tool
-
-- When you need to search for precise documentation, especially of the newest or specific versions of an API
-- When you need up-to-date information from the web ✓ Thinking ▼
-The user is asking me to search the internet for information
-about "Lansing Codes" as a user group. Let me use the
-web_search tool to find information about this
-          </code></pre>
+          <img src="assets/tool-time.png" style="width: 512px"/>
         </section>
-        <section>
+        <section data-auto-animate>
           <h2>Tools</h2>
           <p>
             "Tools are a new kind of software which reflects a
@@ -158,57 +162,53 @@ web_search tool to find information about this
           </p>
           <sub><a href="https://www.anthropic.com/engineering/writing-tools-for-agents">Anthropic: Writing Tools For Agents</a></sub>
         </section>
+        <section data-auto-animate>
+          <h2>Tools</h2>
+          <pre><code data-trim data-noescape class="language-text">
+❯ amp tool show web_search
+# web_search (built-in)
+
+Search the web for information relevant to a research objective.
+
+To get more information from a result URL or to ensure the latest contents are fetched, use the `read_web_page`
+on a URL.
+
+## When to use this tool
+
+- When you need to search for precise documentation, especially of the newest or specific versions of an API
+- When you need up-to-date information from the web
+          </code></pre>
         </section>
         <section>
-          <h2>Model Context Protocol</h2>
+          <h2>Tools</h2>
+          <pre><code data-trim data-noescape class="language-text">
+Upcoming Events
+
+Interestingly, there is a Lansing Codes meetup happening tonight (Tuesday, November 18, 2025) at 6:00 PM.
+
+Topic: "Automating Coding Agents To Accelerate Issue Triage"
+Speaker: Travis from Sourcegraph (discussing the Amp coding assistant)
+Location: In-person (likely at their usual venue, though details are on their Meetup pa
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <h2>Model Context Protocol (MCP)</h2>
           <p>
             an open-source standard for connecting AI applications to external
             systems.
           </p>
           <img src="assets/mcp-simple-diagram.png" />
         </section>
-        <section>
-          <h2>Tools</h2>
-          <pre><code data-trim data-noescape class="language-text">❯ amp tools list
-
-Bash        built-in  Executes the given shell command
-                      in the user's default shell
-
-create_file built-in  Create or overwrite a file
-                      in the workspace
-
-edit_file   built-in  Make edits to a text file
-
-finder      built-in  Intelligently search
-                      your codebase
-          </code></pre>
-        </section>
-        <section>
-          <h2>Tools: Beads</h2>
-          <pre><code data-trim data-noescape class="language-text">❯ amp tools list
-
-mcp__beads__init  local-mcp Initialize bd in current directory
-
-mcp__beads__ready local-mcp Find tasks that have no blockers
-                  and are ready to be worked on
-          </code></pre>
-        </section>
-        <section>
-          <h2>Tools: Playwright</h2>
-          <pre><code data-trim data-noescape class="language-text">❯ amp tools list
-
-mcp__playwright__browser_close             local-mcp Close the
-                                           page
-mcp__playwright__browser_console_messages  local-mcp Returns
-                                           all console messages
-          </code></pre>
+        <section data-auto-animate>
+          <h2>Model Context Protocol (MCP)</h2>
+          <img src="assets/mcp-powered.webp" />
         </section>
         <section data-auto-animate>
-          <h2 class="r-fit-text">How do <b>YOU</b> define an agent?</h2>
+          <h2 class="r-fit-text">How do <span style="color: #fb4934">YOU</span> define an agent?</h2>
         </section>
         <section data-auto-animate>
           <img src="assets/me-me-me-me.jpg" style="width: 1024px" />
-          <h2 class="r-fit-text">How do <b>YOU</b> define an agent?</h2>
+          <h2 class="r-fit-text">How do <span style="color: #fb4934">YOU</span> define an agent?</h2>
         </section>
         </section>
         <section data-auto-animate>
@@ -298,6 +298,20 @@ mcp__playwright__browser_console_messages  local-mcp Returns
           <p>
             They enable the model to take some action and use the result, when it is impractical or impossible to put all the context an agent might need into the instructions
           </p>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Tools</h2>
+          <div>
+            <ul style="list-style: none;">
+              <li style="display: flex; gap: 1rem;"><span style="color: #b16286; flex: 0 0 450px;">WebSearchTool</span><span>Allows agents to search the web</span></li>
+              <li style="display: flex; gap: 1rem;"><span style="color: #b16286; flex: 0 0 450px;">CodeExecutionTool</span><span>Enables agents to execute code in a secure environment</span></li>
+              <li style="display: flex; gap: 1rem;"><span style="color: #b16286; flex: 0 0 450px;">ImageGenerationTool</span><span>Enables agents to generate images</span></li>
+              <li style="display: flex; gap: 1rem;"><span style="color: #b16286; flex: 0 0 450px;">UrlContextTool</span><span>Enables agents to pull URL contents into their context</span></li>
+              <li style="display: flex; gap: 1rem;"><span style="color: #b16286; flex: 0 0 450px;">MemoryTool</span><span>Enables agents to use memory</span></li>
+              <li style="display: flex; gap: 1rem;"><span style="color: #b16286; flex: 0 0 450px;">MCPServerTool</span><span>Enables agents to use remote MCP servers</span></li>
+            </ul>
+          </div>
           <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
         </section>
         <section data-auto-animate>
