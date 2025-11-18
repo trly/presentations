@@ -4,71 +4,71 @@
     <meta charset="utf-8" />
     <title>Automating Issue Triage</title>
 
-    <link rel="stylesheet" href="../../dist/reset.css" />
-    <link rel="stylesheet" href="../../dist/reveal.css" />
-    <link rel="stylesheet" href="../../dist/theme/black.css" />
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/gruvbox-dark-hard.css" />
 
     <!-- Theme used for syntax highlighted code -->
     <link
       rel="stylesheet"
-      href="../../plugin/highlight/monokai.css"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/base16/gruvbox-dark-hard.min.css"
     />
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1 style="color: var(--r-main-color)">Automating Issue Triage</h1>
+          <h1 class="r-fit-text" style="color: var(--r-main-color)">Automating Issue Triage</h1>
         </section>
         <section>
           <img src="assets/avatar.jpg" style="width: 512px" />
           <h1 style="color: var(--r-main-color)">Travis Lyons</h1>
           <h2>
             <span style="color: var(--r-main-color)">Field Engineer @</span>
-            <span style="color: var(--r-bright-red)">Sourcegraph</span>
+            <span style="color: #fb4934">Sourcegraph</span>
           </h2>
         </section>
         <section>
-          <img src="assets/agents.jpg"/>
+          <img src="assets/agents.jpg" style="width: 1024px"/>
         </section>
         <section>
-          <p class="r-fit-text">What do you think of when you hear 'Agents'?</p>
+          <h2 class="r-fit-text">What do you think of when you hear 'Agents'?</h2>
         </section>
         <section>
           <div class="r-stack">
-            <div class="fragment" style="transform: translate(-460px, 149px)">
+            <div class="fragment" style="transform: translate(-460px, -50px)">
               <img src="assets/copilot.jpg" style="width: 512px" />
             </div>
-            <div class="fragment" style="transform: translate(-512px, -184px)">
+            <div class="fragment" style="transform: translate(-512px, -384px)">
               <img src="assets/cursor.png" style="width: 512px" />
             </div>
-            <div class="fragment" style="transform: translate(460px, 5px)">
+            <div class="fragment" style="transform: translate(460px, -195px)">
               <img src="assets/claude-code.png" style="width: 512px" />
             </div>
-            <div class="fragment" style="transform: translate(410px, 277px)">
+            <div class="fragment" style="transform: translate(410px, 77px)">
               <img src="assets/amp.png" style="width: 512px" />
             </div>
-            <div class="fragment" style="transform: translate(-384px, 507px)">
+            <div class="fragment" style="transform: translate(-384px, 307px)">
               <img src="assets/openai.png" style="width: 512px" />
             </div>
-            <div class="fragment" style="transform: translate(512px, 584px)">
+            <div class="fragment" style="transform: translate(512px, 384px)">
               <img src="assets/opencode.png" style="width: 512px" />
             </div>
             <img
               class="fragment"
               src="assets/agent-smith.jpg"
-              style="width: 512px; transform: translate(0px, 200px)"
+              style="width: 1024px; transform: translate(0px, 0px)"
             />
           </div>
         </section>
         <section>
-          <p class="r-fit-text">How do <b>YOU</b> define an agent?</p>
+          <h2 class="r-fit-text">How do <b>YOU</b> define an agent?</h2>
         </section>
         <section>
-          <p class="r-fit-text">What an agent really is</p>
+          <h2 class="r-fit-text">What an agent really is</h2>
         </section>
         <section>
-          <img src="assets/secret.jpg" style="width: 512px"/>
+          <img src="assets/secret.jpg" style="width: 1024px"/>
         </section>
         <section data-auto-animate>
           <h1 class="r-fit-text">The BIG Secret</h1>
@@ -132,6 +132,25 @@ web_search tool to find information about this
         </section>
         <section>
           <h2>Tools</h2>
+          <pre><code data-trim data-noescape class="language-text">
+❯ amp tool show web_search
+# web_search (built-in)
+
+Search the web for information relevant to a research objective.
+
+To get more information from a result URL or to ensure the latest contents are fetched, use the `read_web_page` on a URL.
+
+## When to use this tool
+
+- When you need to search for precise documentation, especially of the newest or specific versions of an API
+- When you need up-to-date information from the web ✓ Thinking ▼
+The user is asking me to search the internet for information
+about "Lansing Codes" as a user group. Let me use the
+web_search tool to find information about this
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tools</h2>
           <p>
             "Tools are a new kind of software which reflects a
             contract between deterministic systems and
@@ -185,29 +204,29 @@ mcp__playwright__browser_console_messages  local-mcp Returns
           </code></pre>
         </section>
         <section data-auto-animate>
-          <p class="r-fit-text">How do <b>YOU</b> define an agent?</p>
+          <h2 class="r-fit-text">How do <b>YOU</b> define an agent?</h2>
         </section>
         <section data-auto-animate>
           <img src="assets/me-me-me-me.jpg" style="width: 1024px" />
-          <p class="r-fit-text">How do <b>YOU</b> define an agent?</p>
+          <h2 class="r-fit-text">How do <b>YOU</b> define an agent?</h2>
         </section>
         </section>
         <section data-auto-animate>
-          <h1>Agents</h1>
+          <h1 class="r-fit-text">Agents</h1>
         </section>
         <section data-auto-animate>
           <h1>Agents</h1>
-          <h2>Loop</h2>
+          <h2 style="color: var(--r-main-color)">Loop</h2>
         </section>
         <section data-auto-animate>
           <h1>Agents</h1>
-          <h2>Loop</h2>
-          <h2>Tools</h2>
+          <h2 style="color: var(--r-main-color)">Loop</h2>
+          <h2 style="color: var(--r-main-color)">Tools</h2>
         </section>
         <section data-auto-animate>
           <h1>Agents</h1>
-          <h2>Loop</h2>
-          <h2>Tools</h2>
+          <h2 style="color: var(--r-main-color)">Loop</h2>
+          <h2 style="color: var(--r-main-color)">Tools</h2>
           <img src="assets/tokens.jpg" style="width: 1024px" />
         </section>
         <section data-auto-animate>
@@ -215,7 +234,7 @@ mcp__playwright__browser_console_messages  local-mcp Returns
         </section>
         <section data-auto-animate>
           <h2 class="r-fit-text">Building an Agent</h2>
-          <p class="r-fit-text">Why you <em> probably </em>came to listen to me</p>
+          <p class="r-fit-text">Why you <em style="color: #8f3f71;"> probably </em>came to listen to me</p>
         </section>
         <section data-auto-animate>
           <img src="assets/pydantic-ai-dark.svg" style="width: 1024px" />
@@ -399,15 +418,114 @@ print(result.output)
             </div>
           </div>
         </section>
+        <section data-auto-animate>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2 style="color: #fe8019;">Instructions</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Dependencies</h2>
+            </div>
+          </div>
+          <div style="margin: 8rem 0;">
+            <p>
+              What do we need to consider to utilize all these components
+              to both effectivly, and efficiently triage CI/CD workflows you may not be responsible for?
+            </p>
+          </div>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Tools</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Output</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Instructions</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2 style="color: #fe8019;">Dependencies</h2>
+            </div>
+          </div>
+          <div style="margin: 8rem 0;">
+            <p>
+              What do we need to consider to utilize all these components
+              to both effectivly, and efficiently triage CI/CD workflows you may not be responsible for?
+            </p>
+          </div>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Tools</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Output</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Instructions</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Dependencies</h2>
+            </div>
+          </div>
+          <div style="margin: 8rem 0;">
+            <p>
+              What do we need to consider to utilize all these components
+              to both effectivly, and efficiently triage CI/CD workflows you may not be responsible for?
+            </p>
+          </div>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2 style="color: #fe8019;">Tools</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Output</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Instructions</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Dependencies</h2>
+            </div>
+          </div>
+          <div style="margin: 8rem 0;">
+            <p>
+              What do we need to consider to utilize all these components
+              to both effectivly, and efficiently triage CI/CD workflows you may not be responsible for?
+            </p>
+          </div>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Tools</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2 style="color: #fe8019;">Output</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text"><span style="color: #fb4934">YOU</span> are still the engineer</h1>
+        </section>
       </div>
     </div>
 
-    <script src="../../dist/reveal.js"></script>
-    <script src="../../plugin/notes/notes.js"></script>
-    <script src="../../plugin/markdown/markdown.js"></script>
-    <script src="../../plugin/highlight/highlight.js"></script>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
     <script type="module">
-      import Mermaid from "../../node_modules/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.esm.js";
+      import Mermaid from "./node_modules/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.esm.js";
 
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
@@ -419,6 +537,13 @@ print(result.output)
         margin: 0.04,
         minScale: 0.2,
         maxScale: 2.0,
+
+        // Highlight.js configuration
+        highlight: {
+          beforeHighlight: (hljs) => {
+            console.log('Highlight.js version:', hljs.versionString);
+          }
+        },
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes, Mermaid],

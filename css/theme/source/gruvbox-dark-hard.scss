@@ -1,0 +1,121 @@
+/**
+ * Gruvbox Dark Hard theme for reveal.js
+ * Based on the Gruvbox color scheme by Pavel Pertsev
+ * https://github.com/morhetz/gruvbox
+ */
+
+
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Gruvbox Dark Hard color palette
+$gruvbox-bg0-hard: #1d2021;
+$gruvbox-bg0: #282828;
+$gruvbox-bg1: #3c3836;
+$gruvbox-bg2: #504945;
+$gruvbox-bg3: #665c54;
+
+$gruvbox-fg0: #f9f5d7;
+$gruvbox-fg1: #ebdbb2;
+$gruvbox-fg2: #d5c4a1;
+$gruvbox-fg3: #bdae93;
+
+$gruvbox-bright-red: #fb4934;
+$gruvbox-bright-green: #b8bb26;
+$gruvbox-bright-yellow: #fabd2f;
+$gruvbox-bright-blue: #83a598;
+$gruvbox-bright-purple: #d3869b;
+$gruvbox-bright-aqua: #8ec07c;
+$gruvbox-bright-orange: #fe8019;
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: $gruvbox-bg0-hard;
+
+$mainColor: $gruvbox-fg1;
+$headingColor: $gruvbox-bright-yellow;
+
+$mainFontSize: 42px;
+$mainFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+$headingFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: $gruvbox-bright-blue;
+$linkColorHover: $gruvbox-bright-purple;
+$selectionBackgroundColor: $gruvbox-bg3;
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Custom overrides for Gruvbox theme
+.reveal {
+	a:visited {
+		color: $gruvbox-bright-purple;
+	}
+
+	.controls {
+		color: $gruvbox-bright-yellow;
+	}
+
+	.progress {
+		background: $gruvbox-bg1;
+		color: $gruvbox-bright-yellow;
+	}
+
+	// Inline code only (not syntax-highlighted blocks)
+	:not(pre) > code {
+		background: $gruvbox-bg1;
+		color: $gruvbox-bright-orange;
+		padding: 2px 6px;
+		border-radius: 3px;
+	}
+
+	pre {
+		background: $gruvbox-bg1;
+		border: 1px solid $gruvbox-bg2;
+		box-shadow: none;
+	}
+
+	pre code {
+		background: transparent;
+		padding: 1em;
+	}
+
+	blockquote {
+		border-left: 4px solid $gruvbox-bright-aqua;
+		background: $gruvbox-bg1;
+		color: $gruvbox-fg2;
+		font-style: normal;
+		
+		p {
+			color: $gruvbox-fg2;
+		}
+	}
+
+	strong, b {
+		color: $gruvbox-bright-yellow;
+		font-weight: 600;
+	}
+
+	em, i {
+		color: $gruvbox-bright-purple;
+	}
+
+	.slide-number {
+		background-color: $gruvbox-bg1;
+		color: $gruvbox-fg2;
+	}
+}
