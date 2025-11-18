@@ -92,7 +92,7 @@
         <section data-auto-animate>
           <h1 class="r-fit-text">The <span style="color: #fb4934">BIG</span> Secret</h1>
           <aside class="notes">
-            Want to know the truth
+            Do you want to know the truth?
           </aside>
         </section>
         <section data-auto-animate>
@@ -112,6 +112,7 @@ class Agent:
           </code></pre>
         </section>
         <section data-auto-animate>
+          <h1>The <span style="color: #fb4934">BIG</span> Secret</h1>
           <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
 class Agent:
   def run(self):
@@ -125,9 +126,9 @@ class Agent:
       message = self.run_inference(conversation)
       conversation.append(llm_response)
           </code></pre>
-          <img src="assets/not-sure-if.png" style="width: 512px" />
         </section>
         <section data-auto-animate>
+          <h1>The <span style="color: #fb4934">BIG</span> Secret</h1>
           <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
     while True:
       user_input, ok = self.get_user_message()
@@ -136,21 +137,46 @@ class Agent:
           break
           </code></pre>
           <img src="assets/not-sure-if.png" style="width: 512px" />
-          <h1>Wait, that's it!?</h1>
+        </section>
+        <section data-auto-animate>
+          <h1>The <span style="color: #fb4934">BIG</span> Secret</h1>
+          <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
+    while True:
+      user_input, ok = self.get_user_message()
+      
+      if not ok:
+          break
+          </code></pre>
+          <img src="assets/impossible.jpg" style="width: 512px" />
         </section>
         <section data-auto-animate>
           <h1 class="r-fit-text">Don't believe me?</h1>
+          <aside class="notes">
+            <p>
+              Let's take a look at the code behind the example
+
+              src/basic.py
+            </p>
+          </aside>
         </section>
         <section data-auto-animate>
           <h1 class="r-fit-text">Don't believe me?</h1>
           <h2><a href="https://ampcode.com/how-to-build-an-agent">How to Build an Agent</a></h2>
           <p><a href=https://registerspill.thorstenball.com/>Thorsten Ball</a>, April 15, 2025</p>
+          <aside class="notes">
+            <p>Everyone needs to read this article by my colleague Thorsten, the lead Amp engineer.
+              This demo is the first step of his full write-up, adapted to Python</p>
+            <p>In less than an hour and about 300 lines of code (Which I strongly encourage you to hand write), you'll have an agent that can actually edit code, just like Amp, Claude Code, Codex, etc.</p>
+            <p>It will also really make it clear how much engineering and design need to go into tools with a broad scope</p>
+
+            <p>The biggest takeaway should be</p>
+          </aside>
         </section>
         <section data-auto-animate>
-          <h2 class="r-fit-text">Tools</h2>
+          <h1 class="r-fit-text">Tools</h1>
         </section>
         <section data-auto-animate>
-          <h2>Tools</h2>
+          <h1>Tools</h1>
           <img src="assets/tool-time.png" style="width: 512px"/>
         </section>
         <section data-auto-animate>
@@ -178,6 +204,9 @@ on a URL.
 - When you need to search for precise documentation, especially of the newest or specific versions of an API
 - When you need up-to-date information from the web
           </code></pre>
+          <aside class="notes">
+            Most coding agents have built-in tools, Amp for example, has the web tool we saw in the demo
+          </aside>
         </section>
         <section>
           <h2>Tools</h2>
@@ -190,6 +219,9 @@ Topic: "Automating Coding Agents To Accelerate Issue Triage"
 Speaker: Travis from Sourcegraph (discussing the Amp coding assistant)
 Location: In-person (likely at their usual venue, though details are on their Meetup pa
           </code></pre>
+          <aside class="notes">
+            Which gave the this great snippet.
+          </aside>
         </section>
         <section data-auto-animate>
           <h2>Model Context Protocol (MCP)</h2>
@@ -199,6 +231,11 @@ Location: In-person (likely at their usual venue, though details are on their Me
           </p>
           <img src="assets/mcp-simple-diagram.png" />
         </section>
+        <aside class="notes">
+          <p>I have some personally strong opinions on MCP, both good and bad.</p>
+          <p>I'm not a big fan of local MCP servers, in general. They were great in the pre-agentic age (what, 6 months ago), for assisting RAG based assistants</p>
+          <p>Remote MCP servers tend to be more useful and solve many security issues that block many devs from even being able to or wanting to use local servers.</p>
+        </aside>
         <section data-auto-animate>
           <h2>Model Context Protocol (MCP)</h2>
           <img src="assets/mcp-powered.webp" />
@@ -230,11 +267,32 @@ Location: In-person (likely at their usual venue, though details are on their Me
           <img src="assets/tokens.jpg" style="width: 1024px" />
         </section>
         <section data-auto-animate>
-          <h2 class="r-fit-text">Building an Agent</h2>
+          <h1 class="r-fit-text">Building an Agent</h1>
         </section>
         <section data-auto-animate>
-          <h2 class="r-fit-text">Building an Agent</h2>
+          <h1 class="r-fit-text">Building an Agent</h1>
           <p class="r-fit-text">Why you <em style="color: #8f3f71;"> probably </em>came to listen to me</p>
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text">Building an Agent</h1>
+          <div class="r-stack">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers class="language-python">
+class Agent:
+  def run(self):
+    while True:
+      user_input, ok = self.get_user_message()
+      
+      if not ok:
+          break
+
+      conversation.append(user_input)
+      message = self.run_inference(conversation)
+      conversation.append(llm_response)
+              </code></pre>
+            <div class="fragment">
+              <img src="assets/TrollFace.png"/>
+            </div>
+          </div>
         </section>
         <section data-auto-animate>
           <img src="assets/pydantic-ai-dark.svg" style="width: 1024px" />
@@ -259,7 +317,7 @@ Location: In-person (likely at their usual venue, though details are on their Me
           <h2>Instructions</h2>
           <p>
             Allow you to provide prompts to an agent definition as:
-            <ul>
+            <ul style="list-style: none;">
               <li>Static instructions</li>
               <li>Dynamic instructions</li>
               <li>Runtime instructions</li>
@@ -288,16 +346,14 @@ Location: In-person (likely at their usual venue, though details are on their Me
         </section>
         <section data-auto-animate>
           <h2>Tools</h2>
-          <p>
-            Tools provide a mechanism for models to perform actions and retrieve extra information to help them generate a response
-          </p>
+          <p>Tools provide a mechanism for models to perform actions and retrieve extra</p>
+          <p>information to help them generate a response</p>
           <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
         </section>
         <section data-auto-animate>
           <h2>Tools</h2>
-          <p>
-            They enable the model to take some action and use the result, when it is impractical or impossible to put all the context an agent might need into the instructions
-          </p>
+          <p>They enable the model to take some action and use the result, when it is</p>
+          <p>impractical or impossible to put all the context an agent might need into the instructions</p>
           <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
         </section>
         <section data-auto-animate>
