@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Automating Issue Triage</title>
+
+    <link rel="stylesheet" href="../../dist/reset.css" />
+    <link rel="stylesheet" href="../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="../../plugin/highlight/monokai.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: var(--r-main-color)">Automating Issue Triage</h1>
+        </section>
+        <section>
+          <img src="assets/avatar.jpg" style="width: 512px" />
+          <h1 style="color: var(--r-main-color)">Travis Lyons</h1>
+          <h2>
+            <span style="color: var(--r-main-color)">Field Engineer @</span>
+            <span style="color: var(--r-bright-red)">Sourcegraph</span>
+          </h2>
+        </section>
+        <section>
+          <img src="assets/agents.jpg"/>
+        </section>
+        <section>
+          <p class="r-fit-text">What do you think of when you hear 'Agents'?</p>
+        </section>
+        <section>
+          <div class="r-stack">
+            <div class="fragment" style="transform: translate(-460px, 149px)">
+              <img src="assets/copilot.jpg" style="width: 512px" />
+            </div>
+            <div class="fragment" style="transform: translate(-512px, -184px)">
+              <img src="assets/cursor.png" style="width: 512px" />
+            </div>
+            <div class="fragment" style="transform: translate(460px, 5px)">
+              <img src="assets/claude-code.png" style="width: 512px" />
+            </div>
+            <div class="fragment" style="transform: translate(410px, 277px)">
+              <img src="assets/amp.png" style="width: 512px" />
+            </div>
+            <div class="fragment" style="transform: translate(-384px, 507px)">
+              <img src="assets/openai.png" style="width: 512px" />
+            </div>
+            <div class="fragment" style="transform: translate(512px, 584px)">
+              <img src="assets/opencode.png" style="width: 512px" />
+            </div>
+            <img
+              class="fragment"
+              src="assets/agent-smith.jpg"
+              style="width: 512px; transform: translate(0px, 200px)"
+            />
+          </div>
+        </section>
+        <section>
+          <p class="r-fit-text">How do <b>YOU</b> define an agent?</p>
+        </section>
+        <section>
+          <p class="r-fit-text">What an agent really is</p>
+        </section>
+        <section>
+          <img src="assets/secret.jpg" style="width: 512px"/>
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text">The BIG Secret</h1>
+        </section>
+        <section data-auto-animate>
+          <h1>The BIG Secret</h1>
+          <pre><code data-trim data-noescape class="language-python">class Agent:
+
+  def run(self):
+    while True:
+      user_input, ok = self.get_user_message()
+      if not ok:
+          break
+
+      conversation.append(user_input)
+
+      message = self.run_inference(conversation)
+
+      conversation.append(llm_response)
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre><code data-trim data-noescape class="language-python">class Agent:
+
+  def run(self):
+    while True:
+      user_input, ok = self.get_user_message()
+      if not ok:
+          break
+
+      conversation.append(user_input)
+
+      message = self.run_inference(conversation)
+
+      conversation.append(llm_response)
+          </code></pre>
+          <img src="assets/surprise.jpg" style="width: 512px" />
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text">Wait, that's it!?</h1>
+          <img src="assets/surprise.jpg" style="width: 512px" />
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text">Mostly...</h1>
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text">Don't belive me?</h1>
+        </section>
+        <section data-auto-animate>
+          <h1 class="r-fit-text">Don't belive me?</h1>
+          <h2><a href="https://ampcode.com/how-to-build-an-agent">How to build an agent</a></h2>
+          <p><a href=https://registerspill.thorstenball.com/>Thorsten Ball</a>, April 15, 2025</p>
+        </section>
+        <section>
+          <h2>Tools</h2>
+          <pre><code data-trim data-noescape class="language-text">✓ Thinking ▼
+The user is asking me to search the internet for information
+about "Lansing Codes" as a user group. Let me use the
+web_search tool to find information about this
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tools</h2>
+          <p>
+            "Tools are a new kind of software which reflects a
+            contract between deterministic systems and
+            non-deterministic agents."
+          </p>
+          <sub><a href="https://www.anthropic.com/engineering/writing-tools-for-agents">Anthropic: Writing Tools For Agents</a></sub>
+        </section>
+        </section>
+        <section>
+          <h2>Model Context Protocol</h2>
+          <p>
+            an open-source standard for connecting AI applications to external
+            systems.
+          </p>
+          <img src="assets/mcp-simple-diagram.png" />
+        </section>
+        <section>
+          <h2>Tools</h2>
+          <pre><code data-trim data-noescape class="language-text">❯ amp tools list
+
+Bash        built-in  Executes the given shell command
+                      in the user's default shell
+
+create_file built-in  Create or overwrite a file
+                      in the workspace
+
+edit_file   built-in  Make edits to a text file
+
+finder      built-in  Intelligently search
+                      your codebase
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tools: Beads</h2>
+          <pre><code data-trim data-noescape class="language-text">❯ amp tools list
+
+mcp__beads__init  local-mcp Initialize bd in current directory
+
+mcp__beads__ready local-mcp Find tasks that have no blockers
+                  and are ready to be worked on
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tools: Playwright</h2>
+          <pre><code data-trim data-noescape class="language-text">❯ amp tools list
+
+mcp__playwright__browser_close             local-mcp Close the
+                                           page
+mcp__playwright__browser_console_messages  local-mcp Returns
+                                           all console messages
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <p class="r-fit-text">How do <b>YOU</b> define an agent?</p>
+        </section>
+        <section data-auto-animate>
+          <img src="assets/me-me-me-me.jpg" style="width: 1024px" />
+          <p class="r-fit-text">How do <b>YOU</b> define an agent?</p>
+        </section>
+        </section>
+        <section data-auto-animate>
+          <h1>Agents</h1>
+        </section>
+        <section data-auto-animate>
+          <h1>Agents</h1>
+          <h2>Loop</h2>
+        </section>
+        <section data-auto-animate>
+          <h1>Agents</h1>
+          <h2>Loop</h2>
+          <h2>Tools</h2>
+        </section>
+        <section data-auto-animate>
+          <h1>Agents</h1>
+          <h2>Loop</h2>
+          <h2>Tools</h2>
+          <img src="assets/tokens.jpg" style="width: 1024px" />
+        </section>
+        <section data-auto-animate>
+          <h2 class="r-fit-text">Building an Agent</h2>
+        </section>
+        <section data-auto-animate>
+          <h2 class="r-fit-text">Building an Agent</h2>
+          <p class="r-fit-text">Why you <em> probably </em>came to listen to me</p>
+        </section>
+        <section data-auto-animate>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 1024px" />
+        </section>
+        <section data-auto-animate>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 1024px" />
+          <p>A Python agent framework designed to help you quickly, confidently, and painlessly build production grade applications and workflows with Generative AI.</p>
+          <sub><a href=https://ai.pydantic.dev>https://ai.pydantic.dev</a></sub>
+        </section>
+        <section data-auto-animate>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 1024px" />
+          <h2>Instructions</h2>
+          <h2>Tools</h2>
+          <h2>Dependencies</h2>
+          <h2>Output</h2>
+        </section>
+        <section data-auto-animate>
+          <h2>Instructions</h2>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Instructions</h2>
+          <p>
+            Allow you to provide prompts to an agent definition as:
+            <ul>
+              <li>Static instructions</li>
+              <li>Dynamic instructions</li>
+              <li>Runtime instructions</li>
+            </ul>
+          </p>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Instructions</h2>
+          <pre><code data-trim data-noescape class="language-python">
+  def _register_instructions(self) -> None:
+    """Register agent instructions as separate methods."""
+    self.agent.instructions(base_instructions)
+    self.agent.instructions(github_context_instructions)
+
+    if self.sg_toolset:
+      self.agent.instructions(sourcegraph_mcp_instructions)
+
+    self.agent.instructions(output_requirements_instructions)
+          </code></pre>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Tools</h2>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Tools</h2>
+          <p>
+            Tools provide a mechanism for models to perform actions and retrieve extra information to help them generate a response
+          </p>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Tools</h2>
+          <p>
+            They enable the model to take some action and use the result, when it is impractical or impossible to put all the context an agent might need into the instructions
+          </p>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Tools</h2>
+          <pre><code data-trim data-noescape class="language-python">
+@agent.tool_plain
+def roll_dice() -> str:
+    """Roll a six-sided die and return the result."""
+    return str(random.randint(1, 6))
+
+@agent.tool  
+def get_player_name(ctx: RunContext[str]) -> str:
+    """Get the player's name."""
+    return ctx.deps
+          </code></pre>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Dependencies</h2>
+          <p>
+            Pydantic AI uses a dependency injection system to provide data and services to your agent's system prompts, tools and output validators
+          </p>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Dependencies</h2>
+          <pre><code data-trim data-noescape class="language-python">
+@dataclass
+class MyDeps:
+    api_key: str
+    http_client: httpx.Client  
+
+
+agent = Agent(
+    'openai:gpt-5',
+    deps_type=MyDeps,
+)
+
+          </code></pre>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Dependencies</h2>
+          <pre><code data-trim data-noescape class="language-python">
+agent = Agent(
+    'google-gla:gemini-2.5-flash',  
+    deps_type=str,  
+    system_prompt=(
+      "You're a dice game, you should roll the die and see if the number "
+      "you get back matches the user's guess. If so, tell them they're a winner. "
+      "Use the player's name in the response."
+    ),
+)
+
+dice_result = agent.run_sync('My guess is 4', deps='Anne')
+print(dice_result.output)
+#> Congratulations Anne, you guessed correctly!
+          </code></pre>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <h2>Output</h2>
+          <pre><code data-trim data-noescape class="language-python">
+class CityLocation(BaseModel):
+    city: str
+    country: str
+
+
+agent = Agent('google-gla:gemini-2.5-flash', output_type=CityLocation)
+
+result = agent.run_sync('Where were the olympics held in 2012?')
+
+print(result.output)
+
+#> city='London' country='United Kingdom'
+          </code></pre>
+          <img src="assets/pydantic-ai-dark.svg" style="width: 256px" />
+        </section>
+        <section data-auto-animate>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Instructions</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Dependencies</h2>
+            </div>
+          </div>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Tools</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Output</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Instructions</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Dependencies</h2>
+            </div>
+          </div>
+          <div style="margin: 8rem 0;">
+            <p>
+              What do we need to consider to utilize all these components
+              to both effectivly, and efficiently triage CI/CD workflows you may not be responsible for?
+            </p>
+          </div>
+          <div style="display: flex; gap: 2rem;">
+            <div style="flex: 1;">
+              <h2>Tools</h2>
+            </div>
+            <div style="flex: 1;">
+              <h2>Output</h2>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="../../dist/reveal.js"></script>
+    <script src="../../plugin/notes/notes.js"></script>
+    <script src="../../plugin/markdown/markdown.js"></script>
+    <script src="../../plugin/highlight/highlight.js"></script>
+    <script type="module">
+      import Mermaid from "../../node_modules/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.esm.js";
+
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        width: 1920,
+        height: 1080,
+        margin: 0.04,
+        minScale: 0.2,
+        maxScale: 2.0,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, Mermaid],
+      });
+    </script>
+  </body>
+</html>
